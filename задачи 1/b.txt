@@ -1,0 +1,12 @@
+public class Main {
+    public static void main(String[] args) {
+        String str = "example";
+        String middle =  func (str);
+
+        System.out.println(middle);
+    }
+private static String func (String str){
+    int middleindex = str.length()/2-1;
+    return  str.substring(middleindex, middleindex+2);
+    }
+}

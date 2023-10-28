@@ -1,0 +1,21 @@
+public class Main {
+    public static void main(String[] args) {
+        String sentence = "One two three раз два три one1 two2 123 ";
+
+        int count = countLatinWords(sentence);
+        System.out.println("Количество слов, содержащих только символы латинского алфавита: " + count);
+    }
+
+    private static int countLatinWords(String sentence) {
+        int count = 0;
+        String[] words = sentence.split("\\s+");
+
+        for (String word : words) {
+            if (word.matches("[a-zA-Z]+")) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+}

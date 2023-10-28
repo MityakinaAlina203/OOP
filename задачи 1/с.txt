@@ -1,0 +1,32 @@
+public class Main {
+    public static void main(String[] args) {
+        String sentence = "fffff ab f 1234 jkjk";
+        String[] words = sentence.split("\\s+");
+        String resultWord = "";
+        int minDistinctCount = Integer.MAX_VALUE;
+
+        for (String word : words) {
+            int distinctCount = countDistinctChars(word);
+            if (distinctCount < minDistinctCount) {
+                minDistinctCount = distinctCount;
+                resultWord = word;
+            }
+        }
+
+        System.out.println("Слово с минимальным количеством различных символов: " + resultWord);
+    }
+
+    private static int countDistinctChars(String word) {
+        int count = 0;
+        boolean[] visited = new boolean[256];
+
+        for (char c : word.toCharArray()) {
+            if (!visited[c]) {
+                visited[c] = true;
+                count++;
+            }
+        }
+
+        return count;
+    }
+}
